@@ -17,6 +17,9 @@ const ErrorExamples: React.FC<ErrorExamplesProps> = ({
   filter,
   onFilterChange,
 }) => {
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [examples, setExamples] = React.useState<ErrorExample[]>([]);
+
   const getFilteredExamples = (): ErrorExample[] => {
     if (!data.wer || data.wer.length === 0) return [];
 
@@ -37,7 +40,15 @@ const ErrorExamples: React.FC<ErrorExamplesProps> = ({
     return examples;
   };
 
-  const examples = getFilteredExamples();
+  React.useEffect(() => {
+    setIsLoading(true);
+    // Small delay to show loading state
+    const timer = setTimeout(() => {
+      setExamples(getFilteredExamples());
+      setIsLoading(false);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, [filter, data]);
 
   return (
     <div>
@@ -57,8 +68,13 @@ const ErrorExamples: React.FC<ErrorExamplesProps> = ({
         <option value="low">Low WER (&lt; 0.2)</option>
       </select>
 
-      <div className="space-y-4 max-h-96 overflow-y-auto">
-        {examples.length === 0 ? (
+      <div className="space-y-4 max-h-96 overflow-y-auto relative">
+        {isLoading ? (
+          <div className="flex flex-col items-center justify-center py-12 gap-3">
+            <div className="animate-spin h-8 w-8 border-4 border-primary-600 border-t-transparent rounded-full"></div>
+            <span className="text-sm text-gray-600">Loading examples...</span>
+          </div>
+        ) : examples.length === 0 ? (
           <p className="text-gray-500 text-sm">
             No examples found for this filter.
           </p>

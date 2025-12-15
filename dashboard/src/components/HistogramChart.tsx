@@ -28,7 +28,7 @@ const HistogramChart: React.FC<HistogramChartProps> = ({
     setIsClient(true);
   }, []);
   // Create histogram bins
-  const createHistogram = (values: number[], numBins: number = 20) => {
+  const createHistogram = (values: number[], numBins: number = 30) => {
     if (values.length === 0) return [];
 
     const min = Math.min(...values);

@@ -25,6 +25,7 @@ export default function Home() {
   const [werFilter, setWerFilter] = useState<"low" | "medium" | "high">("high");
   const [data, setData] = useState<any>(null);
   const [kpis, setKpis] = useState<any>(null);
+  const [isChangingFeature, setIsChangingFeature] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
@@ -67,6 +68,16 @@ export default function Home() {
     { value: "spectral_centroid", label: "Spectral Centroid" },
     { value: "silence_ratio", label: "Silence Ratio" },
   ];
+
+  // Handle feature change with loading state
+  const handleFeatureChange = (newFeature: string) => {
+    setIsChangingFeature(true);
+    // Small delay to show loading state
+    setTimeout(() => {
+      setSelectedFeature(newFeature);
+      setIsChangingFeature(false);
+    }, 100);
+  };
 
   // Show loading state during hydration
   if (!isClient || !data || !kpis) {
@@ -172,16 +183,32 @@ export default function Home() {
           <FeatureSelector
             features={features}
             selectedFeature={selectedFeature}
-            onFeatureChange={setSelectedFeature}
+            onFeatureChange={handleFeatureChange}
           />
+          {isChangingFeature && (
+            <div className="mt-2 flex items-center gap-2 text-sm text-primary-600">
+              <div className="animate-spin h-4 w-4 border-2 border-primary-600 border-t-transparent rounded-full"></div>
+              <span>Updating charts...</span>
+            </div>
+          )}
         </div>
 
         {/* Main Charts */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-white rounded-xl shadow-lg p-6">
+          <div className="bg-white rounded-xl shadow-lg p-6 relative">
             <h3 className="text-xl font-semibold mb-4 text-gray-800">
               WER vs {features.find((f) => f.value === selectedFeature)?.label}
             </h3>
+            {isChangingFeature && (
+              <div className="absolute inset-0 bg-white/80 flex items-center justify-center z-10 rounded-xl">
+                <div className="flex flex-col items-center gap-3">
+                  <div className="animate-spin h-10 w-10 border-4 border-primary-600 border-t-transparent rounded-full"></div>
+                  <span className="text-sm text-gray-600">
+                    Loading chart...
+                  </span>
+                </div>
+              </div>
+            )}
             <ScatterChart
               data={data}
               xKey={selectedFeature}
@@ -193,11 +220,21 @@ export default function Home() {
             />
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg p-6">
+          <div className="bg-white rounded-xl shadow-lg p-6 relative">
             <h3 className="text-xl font-semibold mb-4 text-gray-800">
               {features.find((f) => f.value === selectedFeature)?.label}{" "}
               Distribution
             </h3>
+            {isChangingFeature && (
+              <div className="absolute inset-0 bg-white/80 flex items-center justify-center z-10 rounded-xl">
+                <div className="flex flex-col items-center gap-3">
+                  <div className="animate-spin h-10 w-10 border-4 border-primary-600 border-t-transparent rounded-full"></div>
+                  <span className="text-sm text-gray-600">
+                    Loading chart...
+                  </span>
+                </div>
+              </div>
+            )}
             <HistogramChart
               data={data[selectedFeature as keyof typeof data] as number[]}
               xLabel={
