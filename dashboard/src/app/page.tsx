@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   Activity,
   TrendingUp,
@@ -18,39 +18,42 @@ import ErrorExamples from "@/components/ErrorExamples";
 import FeatureSelector from "@/components/FeatureSelector";
 import { processData, calculateKPIs } from "@/utils/dataProcessor";
 
-// This would normally come from an API or file upload
-// For now, using sample data structure
-const SAMPLE_DATA = {
-  wer: [],
-  duration_sec: [],
-  word_count: [],
-  speaking_rate: [],
-  energy: [],
-  snr: [],
-  zcr: [],
-  spectral_centroid: [],
-  silence_ratio: [],
-  avg_word_len: [],
-  char_count: [],
-  pred_text: [],
-  gt_text: [],
-};
-
 export default function Home() {
   const [isClient, setIsClient] = useState(false);
   const [selectedFeature, setSelectedFeature] =
     useState<string>("duration_sec");
   const [werFilter, setWerFilter] = useState<"low" | "medium" | "high">("high");
-
-  // Only process data on client side to avoid hydration mismatch
   const [data, setData] = useState<any>(null);
   const [kpis, setKpis] = useState<any>(null);
 
   useEffect(() => {
     setIsClient(true);
-    const processedData = processData(SAMPLE_DATA);
-    setData(processedData);
-    setKpis(calculateKPIs(processedData));
+
+    // Try to load real data from JSON file
+    fetch("/data/wer_data.json")
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Data file not found");
+        }
+        return res.json();
+      })
+      .then((realData) => {
+        console.log("✅ Loaded real data from wer_data.json");
+        const processedData = processData(realData);
+        setData(processedData);
+        setKpis(calculateKPIs(processedData));
+      })
+      .catch((error) => {
+        console.log("⚠️ Could not load real data, using synthetic sample data");
+        console.log("💡 To use your actual data:");
+        console.log("   1. Run: python convert_data.py");
+        console.log("   2. Restart dashboard: npm run dev");
+
+        // Fallback to sample data
+        const processedData = processData({ wer: [] });
+        setData(processedData);
+        setKpis(calculateKPIs(processedData));
+      });
   }, []);
 
   const features = [
@@ -94,6 +97,9 @@ export default function Home() {
         </h1>
         <p className="text-lg text-gray-600">
           Word Error Rate (WER) Dashboard for MultiMed-ST Dataset
+        </p>
+        <p className="text-sm text-gray-500 mt-2">
+          📊 Showing {data.wer.length} samples
         </p>
       </div>
 
@@ -189,16 +195,6 @@ export default function Home() {
 
           <div className="bg-white rounded-xl shadow-lg p-6">
             <h3 className="text-xl font-semibold mb-4 text-gray-800">
-              WER Distribution
-            </h3>
-            <HistogramChart data={data.wer} xLabel="WER" color="#667eea" />
-          </div>
-        </div>
-
-        {/* Feature Distribution and Error Examples */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-white rounded-xl shadow-lg p-6">
-            <h3 className="text-xl font-semibold mb-4 text-gray-800">
               {features.find((f) => f.value === selectedFeature)?.label}{" "}
               Distribution
             </h3>
@@ -209,6 +205,16 @@ export default function Home() {
               }
               color="#4facfe"
             />
+          </div>
+        </div>
+
+        {/* WER Distribution and Error Examples */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="bg-white rounded-xl shadow-lg p-6">
+            <h3 className="text-xl font-semibold mb-4 text-gray-800">
+              WER Distribution
+            </h3>
+            <HistogramChart data={data.wer} xLabel="WER" color="#667eea" />
           </div>
 
           <div className="bg-white rounded-xl shadow-lg p-6">

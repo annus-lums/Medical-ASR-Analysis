@@ -27,10 +27,15 @@ export interface KPIs {
 
 export const processData = (rawData: any): DataPoint => {
   // If data is empty, return sample data for demo purposes
+  // To use real data: run `python convert_data.py` from project root
+  // This will create dashboard/public/data/wer_data.json
   if (!rawData.wer || rawData.wer.length === 0) {
+    console.log('⚠️ No real data found, using synthetic sample data');
+    console.log('💡 Run `python convert_data.py` to use your actual CSV data');
     return generateSampleData();
   }
   
+  console.log(`✅ Loaded ${rawData.wer.length} real samples from CSV data`);
   return rawData as DataPoint;
 }
 
@@ -151,4 +156,3 @@ const generateSampleData = (): DataPoint => {
   
   return data;
 };
-
