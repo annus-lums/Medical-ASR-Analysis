@@ -111,14 +111,14 @@ export default function Home() {
         </p>
         <div className="flex items-center gap-4 mt-2 text-sm">
           <p className="text-gray-500">
-            📊 Showing {data.wer.length.toLocaleString()} samples
+            📊 Data Showing for {data.wer.length.toLocaleString()} samples
           </p>
-          {data.wer.filter((w: number) => w > 5.0).length > 0 && (
+          {/* {data.wer.filter((w: number) => w > 5.0).length > 0 && (
             <p className="text-orange-600">
               ⚠️ {data.wer.filter((w: number) => w > 5.0).length} outliers
               detected (WER {">"} 5.0)
             </p>
-          )}
+          )} */}
         </div>
       </div>
 
