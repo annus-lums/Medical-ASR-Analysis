@@ -49,6 +49,14 @@ const ScatterChart: React.FC<ScatterChartProps> = ({
       text: data.pred_text?.[i] || "",
     })) || [];
 
+  // Filter outliers for cleaner visualization
+  if (xKey === "duration_sec") {
+    chartData = chartData.filter((d: any) => d.x <= 400);
+  }
+  if (yKey === "wer") {
+    chartData = chartData.filter((d: any) => d.y <= 5.0);
+  }
+
   // For performance: sample data if dataset is too large
   const MAX_POINTS = 5000;
   let sampledData = chartData;

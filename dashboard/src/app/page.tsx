@@ -109,9 +109,17 @@ export default function Home() {
         <p className="text-lg text-gray-600">
           Word Error Rate (WER) Dashboard for MultiMed-ST Dataset
         </p>
-        <p className="text-sm text-gray-500 mt-2">
-          📊 Showing {data.wer.length} samples
-        </p>
+        <div className="flex items-center gap-4 mt-2 text-sm">
+          <p className="text-gray-500">
+            📊 Showing {data.wer.length.toLocaleString()} samples
+          </p>
+          {data.wer.filter((w: number) => w > 5.0).length > 0 && (
+            <p className="text-orange-600">
+              ⚠️ {data.wer.filter((w: number) => w > 5.0).length} outliers
+              detected (WER {">"} 5.0)
+            </p>
+          )}
+        </div>
       </div>
 
       <div className="max-w-7xl mx-auto space-y-6">
@@ -236,12 +244,30 @@ export default function Home() {
               </div>
             )}
             <HistogramChart
-              data={data[selectedFeature as keyof typeof data] as number[]}
+              data={
+                selectedFeature === "duration_sec"
+                  ? (data[selectedFeature] as number[]).filter(
+                      (v: number) => v <= 100
+                    )
+                  : (data[selectedFeature as keyof typeof data] as number[])
+              }
               xLabel={
                 features.find((f) => f.value === selectedFeature)?.label || ""
               }
               color="#4facfe"
             />
+            {selectedFeature === "duration_sec" &&
+              (data.duration_sec as number[]).filter((v: number) => v > 400)
+                .length > 0 && (
+                <p className="text-xs text-gray-500 mt-2 text-center">
+                  {
+                    (data.duration_sec as number[]).filter(
+                      (v: number) => v > 400
+                    ).length
+                  }{" "}
+                  outliers (duration {">"} 400s) excluded
+                </p>
+              )}
           </div>
         </div>
 
@@ -251,7 +277,16 @@ export default function Home() {
             <h3 className="text-xl font-semibold mb-4 text-gray-800">
               WER Distribution
             </h3>
-            <HistogramChart data={data.wer} xLabel="WER" color="#667eea" />
+            <HistogramChart
+              data={data.wer.filter((w: number) => w <= 5.0)}
+              xLabel="WER"
+              color="#667eea"
+            />
+            {/* {data.wer.filter((w: number) => w > 5.0).length > 0 && (
+              <p className="text-xs text-gray-500 mt-2 text-center">
+                {data.wer.filter((w: number) => w > 5.0).length} outliers (WER > 5.0) excluded from visualization
+              </p>
+            )} */}
           </div>
 
           <div className="bg-white rounded-xl shadow-lg p-6">
