@@ -64,6 +64,7 @@ export default function Home() {
     { value: "energy", label: "Energy" },
     { value: "snr", label: "Signal-to-Noise Ratio" },
     { value: "word_count", label: "Word Count" },
+    { value: "char_count", label: "Character Count" },
     { value: "avg_word_len", label: "Avg Word Length" },
     { value: "zcr", label: "Zero Crossing Rate" },
     { value: "spectral_centroid", label: "Spectral Centroid" },
