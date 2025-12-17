@@ -150,6 +150,7 @@ npm run dev
 - librosa
 - transformers
 - datasets
+- wandb
 
 **Dashboard:**
 - React 18
