@@ -16,6 +16,7 @@ import ScatterChart from "@/components/ScatterChart";
 import HistogramChart from "@/components/HistogramChart";
 import ErrorExamples from "@/components/ErrorExamples";
 import FeatureSelector from "@/components/FeatureSelector";
+import MedicalTermsWordCloud from "@/components/MedicalTermsWordCloud";
 import { processData, calculateKPIs } from "@/utils/dataProcessor";
 
 export default function Home() {
@@ -296,6 +297,11 @@ export default function Home() {
               onFilterChange={setWerFilter}
             />
           </div>
+        </div>
+
+        {/* Medical Terms Word Cloud */}
+        <div className="mt-8">
+          <MedicalTermsWordCloud />
         </div>
 
         {/* Footer */}

@@ -25,10 +25,11 @@ try:
     import medspacy
     import spacy
     MEDSPACY_AVAILABLE = True
-    nlp = medspacy.load()
-    print("✅ MedSpaCy loaded successfully")
+    nlp = None  # Don't load by default - too slow
+    print("⚠️  MedSpaCy available but not loaded (use --advanced flag to enable)")
 except ImportError:
     MEDSPACY_AVAILABLE = False
+    nlp = None
     print("⚠️  MedSpaCy not available. Using pattern-based term extraction.")
 
 
@@ -143,7 +144,7 @@ def build_confusion_pairs(df, sample_size=None):
     return confusion
 
 
-def generate_term_error_report(csv_path, output_json='term_error_analysis.json', sample_size=1000):
+def generate_term_error_report(csv_path, output_json='term_error_analysis.json', sample_size=500):
     """
     Generate comprehensive term error analysis report.
     """
@@ -152,17 +153,23 @@ def generate_term_error_report(csv_path, output_json='term_error_analysis.json',
     print(f"{'='*60}\n")
     
     # Load data
-    print(f"Loading data from {csv_path}...")
+    print(f"📂 Loading data from {csv_path}...")
     df = pd.read_csv(csv_path)
+    
+    print(f"✅ Loaded {len(df)} samples")
+    print(f"📊 Columns: {list(df.columns)}\n")
     
     if 'pred_text' not in df.columns or 'gt_text' not in df.columns:
         print("❌ Error: CSV must have 'pred_text' and 'gt_text' columns")
+        print(f"   Found columns: {list(df.columns)}")
         return
     
-    print(f"✅ Loaded {len(df)} samples\n")
+    print(f"🔍 Will analyze {min(sample_size, len(df))} samples\n")
     
     # Analyze term errors
-    print("Analyzing term-level errors...")
+    print("🔬 Analyzing term-level errors...")
+    import time
+    start_time = time.time()
     
     all_missed = []
     all_added = []
@@ -171,16 +178,25 @@ def generate_term_error_report(csv_path, output_json='term_error_analysis.json',
     
     # Sample for speed
     sample_df = df.head(sample_size) if sample_size else df
+    total_samples = len(sample_df)
     
-    for idx, row in sample_df.iterrows():
-        if idx % 100 == 0:
-            print(f"  Progress: {idx}/{len(sample_df)}")
+    for i, (idx, row) in enumerate(sample_df.iterrows()):
+        if i % 50 == 0 or i == total_samples - 1:
+            progress = (i + 1) / total_samples * 100
+            elapsed = time.time() - start_time
+            est_total = elapsed / (i + 1) * total_samples if i > 0 else 0
+            est_remaining = est_total - elapsed
+            print(f"  Progress: {i+1}/{total_samples} ({progress:.1f}%) | "
+                  f"Elapsed: {elapsed:.1f}s | Est. remaining: {est_remaining:.1f}s")
         
         analysis = analyze_term_errors(row['pred_text'], row['gt_text'])
         all_missed.extend(analysis['missed'])
         all_added.extend(analysis['added'])
         all_gt_terms.extend(analysis['gt_terms'])
         all_pred_terms.extend(analysis['pred_terms'])
+    
+    elapsed = time.time() - start_time
+    print(f"\n✅ Analysis complete in {elapsed:.2f} seconds")
     
     # Compute statistics
     missed_counter = Counter(all_missed)
@@ -200,12 +216,23 @@ def generate_term_error_report(csv_path, output_json='term_error_analysis.json',
     print(f"❌ Total missed: {total_missed}")
     print(f"➕ Total hallucinated: {len(all_added)}")
     
-    print(f"\n🔝 Top 20 Most Frequently Missed Medical Terms:")
+    # Filter missed terms: only show those with total occurrence < 100
+    filtered_missed = [
+        (term, count) for term, count in missed_counter.most_common()
+        if gt_term_counter.get(term, 0) < 100
+    ]
+    
+    total_unique_missed = len(missed_counter)
+    rare_missed = len(filtered_missed)
+    
+    print(f"\n🔝 Top 20 Most Frequently Missed Medical Terms (Total Occurrence < 100):")
     print(f"{'-'*60}")
-    for term, count in missed_counter.most_common(20):
+    print(f"   Showing {min(20, rare_missed)} of {rare_missed} rare terms (out of {total_unique_missed} total unique missed terms)")
+    print(f"{'-'*60}")
+    for term, count in filtered_missed[:20]:
         freq_in_gt = gt_term_counter.get(term, 0)
         miss_rate = count / freq_in_gt if freq_in_gt > 0 else 0
-        print(f"  {term:30s} | Missed: {count:4d} / {freq_in_gt:4d} ({miss_rate:.1%})")
+        print(f"  {term:30s} | Missed: {count:4d} / Total: {freq_in_gt:4d} ({miss_rate:.1%})")
     
     print(f"\n➕ Top 20 Most Frequently Hallucinated Terms:")
     print(f"{'-'*60}")
@@ -221,8 +248,14 @@ def generate_term_error_report(csv_path, output_json='term_error_analysis.json',
             'total_hallucinated': int(len(all_added)),
             'samples_analyzed': len(sample_df)
         },
-        'top_missed_terms': [
-            {'term': term, 'count': count, 'frequency_in_gt': gt_term_counter.get(term, 0)}
+        'top_missed_terms_rare': [
+            {'term': term, 'missed_count': count, 'total_occurrences': gt_term_counter.get(term, 0),
+             'miss_rate': count / gt_term_counter.get(term, 1)}
+            for term, count in filtered_missed[:50]
+        ],
+        'top_missed_terms_all': [
+            {'term': term, 'missed_count': count, 'total_occurrences': gt_term_counter.get(term, 0),
+             'miss_rate': count / gt_term_counter.get(term, 1)}
             for term, count in missed_counter.most_common(50)
         ],
         'top_hallucinated_terms': [
@@ -252,12 +285,18 @@ if __name__ == '__main__':
         print("Usage: python term_error_analysis.py [csv_file]")
         sys.exit(1)
     
-    generate_term_error_report(csv_file, sample_size=1000)
+    # Default: analyze 500 samples (fast, ~30 seconds)
+    # For full analysis, use: generate_term_error_report(csv_file, sample_size=None)
+    generate_term_error_report(csv_file, sample_size=500)
     
     print("\n💡 Tips:")
-    print("  - Install MedSpaCy for better term extraction:")
+    print("  - This script analyzed 500 samples by default for speed")
+    print("  - For full analysis, edit the sample_size parameter in the script")
+    print("  - Install MedSpaCy for better term extraction (optional):")
     print("    pip install medspacy scispacy")
     print("    python -m spacy download en_core_sci_md")
-    print("  - Increase sample_size for more comprehensive analysis")
     print("  - Use the JSON output for dashboard integration")
+
+
+
 
