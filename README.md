@@ -2,6 +2,12 @@
 
 This project analyzes Word Error Rate (WER) in Automatic Speech Recognition (ASR) systems for medical speech data using the MultiMed-ST dataset (English subset). It includes data processing, feature extraction, WER prediction modeling, error analysis, and an interactive dashboard for visualization.
 
+**🔗 Repository**: [https://github.com/annus-lums/Medical-ASR-Analysis](https://github.com/annus-lums/Medical-ASR-Analysis)
+
+**📝 Blog Posts**:
+- [Part 1: Modelling MultiMed Speech Data (English)](https://medium.com/@aminqasmi78/modelling-multimed-speech-data-english-84939d397fd2)
+- [Part 2: Modelling MultiMed Speech Data (English)](https://medium.com/@aminqasmi78/modelling-multimed-speech-data-english-part-2-d691cfe4ca06)
+
 ## Project Overview
 
 - **Dataset**: MultiMed-ST (Multilingual Medical Speech Translation) - English subset
@@ -151,3 +157,12 @@ npm run dev
 - Recharts
 - TailwindCSS
 - d3-cloud
+
+## Links & Resources
+
+- **GitHub Repository**: [Medical-ASR-Analysis](https://github.com/annus-lums/Medical-ASR-Analysis)
+- **Live Dashboard**: [medical-asr-analysis.vercel.app](https://medical-asr-analysis.vercel.app)
+- **Blog Post (Part 1)**: [Modelling MultiMed Speech Data](https://medium.com/@aminqasmi78/modelling-multimed-speech-data-english-84939d397fd2)
+- **Blog Post (Part 2)**: [Analysis & Dashboard](https://medium.com/@aminqasmi78/modelling-multimed-speech-data-english-part-2-d691cfe4ca06)
+- **Dataset**: [MultiMed-ST on Hugging Face](https://huggingface.co/datasets/leduckhai/MultiMed-ST)
+- **Model**: [OpenAI Whisper](https://github.com/openai/whisper)
