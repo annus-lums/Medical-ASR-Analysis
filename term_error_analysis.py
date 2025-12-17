@@ -164,7 +164,8 @@ def generate_term_error_report(csv_path, output_json='term_error_analysis.json',
         print(f"   Found columns: {list(df.columns)}")
         return
     
-    print(f"🔍 Will analyze {min(sample_size, len(df))} samples\n")
+    num_samples = len(df) if sample_size is None else min(sample_size, len(df))
+    print(f"🔍 Will analyze {num_samples} samples\n")
     
     # Analyze term errors
     print("🔬 Analyzing term-level errors...")
@@ -285,9 +286,8 @@ if __name__ == '__main__':
         print("Usage: python term_error_analysis.py [csv_file]")
         sys.exit(1)
     
-    # Default: analyze 500 samples (fast, ~30 seconds)
-    # For full analysis, use: generate_term_error_report(csv_file, sample_size=None)
-    generate_term_error_report(csv_file, sample_size=500)
+    # Analyze full test set for accurate metrics
+    generate_term_error_report(csv_file, sample_size=None)
     
     print("\n💡 Tips:")
     print("  - This script analyzed 500 samples by default for speed")

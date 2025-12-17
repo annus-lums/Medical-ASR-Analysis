@@ -15,6 +15,7 @@
 
 # next.js
 /dashboard/.next/
+dashboard/out
 
 # production
 /dashboard/build

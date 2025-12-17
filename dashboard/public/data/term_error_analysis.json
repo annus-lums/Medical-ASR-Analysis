@@ -1,17 +1,227 @@
 {
   "summary": {
-    "term_recall": 0.9178930366116296,
-    "total_gt_terms": 11144,
-    "total_missed": 915,
-    "total_hallucinated": 874,
-    "samples_analyzed": 500
+    "term_recall": 0.8526917988185528,
+    "total_gt_terms": 107326,
+    "total_missed": 15810,
+    "total_hallucinated": 13801,
+    "samples_analyzed": 4751
   },
   "top_missed_terms_rare": [
     {
-      "term": "adipose",
-      "missed_count": 12,
-      "total_occurrences": 14,
+      "term": "um",
+      "missed_count": 80,
+      "total_occurrences": 83,
+      "miss_rate": 0.963855421686747
+    },
+    {
+      "term": "gonna",
+      "missed_count": 44,
+      "total_occurrences": 48,
+      "miss_rate": 0.9166666666666666
+    },
+    {
+      "term": "william",
+      "missed_count": 34,
+      "total_occurrences": 38,
+      "miss_rate": 0.8947368421052632
+    },
+    {
+      "term": "collins",
+      "missed_count": 33,
+      "total_occurrences": 43,
+      "miss_rate": 0.7674418604651163
+    },
+    {
+      "term": "music",
+      "missed_count": 29,
+      "total_occurrences": 31,
+      "miss_rate": 0.9354838709677419
+    },
+    {
+      "term": "tinnitus",
+      "missed_count": 29,
+      "total_occurrences": 32,
+      "miss_rate": 0.90625
+    },
+    {
+      "term": "percent",
+      "missed_count": 28,
+      "total_occurrences": 30,
+      "miss_rate": 0.9333333333333333
+    },
+    {
+      "term": "doctor",
+      "missed_count": 19,
+      "total_occurrences": 42,
+      "miss_rate": 0.4523809523809524
+    },
+    {
+      "term": "cause",
+      "missed_count": 18,
+      "total_occurrences": 91,
+      "miss_rate": 0.1978021978021978
+    },
+    {
+      "term": "benign",
+      "missed_count": 18,
+      "total_occurrences": 39,
+      "miss_rate": 0.46153846153846156
+    },
+    {
+      "term": "otitis",
+      "missed_count": 18,
+      "total_occurrences": 21,
       "miss_rate": 0.8571428571428571
+    },
+    {
+      "term": "adipose",
+      "missed_count": 16,
+      "total_occurrences": 19,
+      "miss_rate": 0.8421052631578947
+    },
+    {
+      "term": "yeah",
+      "missed_count": 16,
+      "total_occurrences": 46,
+      "miss_rate": 0.34782608695652173
+    },
+    {
+      "term": "am",
+      "missed_count": 16,
+      "total_occurrences": 43,
+      "miss_rate": 0.37209302325581395
+    },
+    {
+      "term": "show",
+      "missed_count": 16,
+      "total_occurrences": 53,
+      "miss_rate": 0.3018867924528302
+    },
+    {
+      "term": "does",
+      "missed_count": 15,
+      "total_occurrences": 78,
+      "miss_rate": 0.19230769230769232
+    },
+    {
+      "term": "reporter",
+      "missed_count": 15,
+      "total_occurrences": 15,
+      "miss_rate": 1.0
+    },
+    {
+      "term": "tissue",
+      "missed_count": 14,
+      "total_occurrences": 56,
+      "miss_rate": 0.25
+    },
+    {
+      "term": "sort",
+      "missed_count": 14,
+      "total_occurrences": 71,
+      "miss_rate": 0.19718309859154928
+    },
+    {
+      "term": "better",
+      "missed_count": 14,
+      "total_occurrences": 56,
+      "miss_rate": 0.25
+    },
+    {
+      "term": "cancers",
+      "missed_count": 14,
+      "total_occurrences": 45,
+      "miss_rate": 0.3111111111111111
+    },
+    {
+      "term": "clinical",
+      "missed_count": 14,
+      "total_occurrences": 92,
+      "miss_rate": 0.15217391304347827
+    },
+    {
+      "term": "should",
+      "missed_count": 14,
+      "total_occurrences": 67,
+      "miss_rate": 0.208955223880597
+    },
+    {
+      "term": "said",
+      "missed_count": 14,
+      "total_occurrences": 78,
+      "miss_rate": 0.1794871794871795
+    },
+    {
+      "term": "medicine",
+      "missed_count": 13,
+      "total_occurrences": 82,
+      "miss_rate": 0.15853658536585366
+    },
+    {
+      "term": "ok",
+      "missed_count": 13,
+      "total_occurrences": 13,
+      "miss_rate": 1.0
+    },
+    {
+      "term": "got",
+      "missed_count": 13,
+      "total_occurrences": 83,
+      "miss_rate": 0.1566265060240964
+    },
+    {
+      "term": "thing",
+      "missed_count": 13,
+      "total_occurrences": 84,
+      "miss_rate": 0.15476190476190477
+    },
+    {
+      "term": "risk",
+      "missed_count": 13,
+      "total_occurrences": 74,
+      "miss_rate": 0.17567567567567569
+    },
+    {
+      "term": "her",
+      "missed_count": 13,
+      "total_occurrences": 60,
+      "miss_rate": 0.21666666666666667
+    },
+    {
+      "term": "mean",
+      "missed_count": 13,
+      "total_occurrences": 59,
+      "miss_rate": 0.22033898305084745
+    },
+    {
+      "term": "zap",
+      "missed_count": 13,
+      "total_occurrences": 13,
+      "miss_rate": 1.0
+    },
+    {
+      "term": "spheroids",
+      "missed_count": 13,
+      "total_occurrences": 13,
+      "miss_rate": 1.0
+    },
+    {
+      "term": "justin",
+      "missed_count": 13,
+      "total_occurrences": 13,
+      "miss_rate": 1.0
+    },
+    {
+      "term": "marchegiani",
+      "missed_count": 13,
+      "total_occurrences": 13,
+      "miss_rate": 1.0
+    },
+    {
+      "term": "mental",
+      "missed_count": 12,
+      "total_occurrences": 76,
+      "miss_rate": 0.15789473684210525
     },
     {
       "term": "sjogren",
@@ -20,10 +230,70 @@
       "miss_rate": 1.0
     },
     {
-      "term": "me",
-      "missed_count": 11,
-      "total_occurrences": 19,
-      "miss_rate": 0.5789473684210527
+      "term": "bit",
+      "missed_count": 12,
+      "total_occurrences": 93,
+      "miss_rate": 0.12903225806451613
+    },
+    {
+      "term": "medical",
+      "missed_count": 12,
+      "total_occurrences": 92,
+      "miss_rate": 0.13043478260869565
+    },
+    {
+      "term": "neuro",
+      "missed_count": 12,
+      "total_occurrences": 18,
+      "miss_rate": 0.6666666666666666
+    },
+    {
+      "term": "both",
+      "missed_count": 12,
+      "total_occurrences": 85,
+      "miss_rate": 0.1411764705882353
+    },
+    {
+      "term": "metastasis",
+      "missed_count": 12,
+      "total_occurrences": 23,
+      "miss_rate": 0.5217391304347826
+    },
+    {
+      "term": "such",
+      "missed_count": 12,
+      "total_occurrences": 66,
+      "miss_rate": 0.18181818181818182
+    },
+    {
+      "term": "diseases",
+      "missed_count": 12,
+      "total_occurrences": 96,
+      "miss_rate": 0.125
+    },
+    {
+      "term": "having",
+      "missed_count": 12,
+      "total_occurrences": 83,
+      "miss_rate": 0.14457831325301204
+    },
+    {
+      "term": "thyroid",
+      "missed_count": 12,
+      "total_occurrences": 17,
+      "miss_rate": 0.7058823529411765
+    },
+    {
+      "term": "oh",
+      "missed_count": 12,
+      "total_occurrences": 24,
+      "miss_rate": 0.5
+    },
+    {
+      "term": "brand",
+      "missed_count": 12,
+      "total_occurrences": 12,
+      "miss_rate": 1.0
     },
     {
       "term": "cfs",
@@ -32,784 +302,514 @@
       "miss_rate": 1.0
     },
     {
-      "term": "are",
-      "missed_count": 10,
-      "total_occurrences": 99,
-      "miss_rate": 0.10101010101010101
-    },
-    {
-      "term": "you",
-      "missed_count": 9,
-      "total_occurrences": 98,
-      "miss_rate": 0.09183673469387756
-    },
-    {
-      "term": "tissue",
-      "missed_count": 8,
-      "total_occurrences": 20,
-      "miss_rate": 0.4
-    },
-    {
-      "term": "an",
-      "missed_count": 8,
-      "total_occurrences": 53,
-      "miss_rate": 0.1509433962264151
-    },
-    {
-      "term": "brown",
-      "missed_count": 7,
-      "total_occurrences": 16,
-      "miss_rate": 0.4375
-    },
-    {
-      "term": "but",
-      "missed_count": 6,
-      "total_occurrences": 70,
-      "miss_rate": 0.08571428571428572
-    },
-    {
-      "term": "at",
-      "missed_count": 6,
-      "total_occurrences": 56,
-      "miss_rate": 0.10714285714285714
-    },
-    {
-      "term": "were",
-      "missed_count": 6,
-      "total_occurrences": 21,
-      "miss_rate": 0.2857142857142857
-    },
-    {
-      "term": "for",
-      "missed_count": 6,
-      "total_occurrences": 96,
-      "miss_rate": 0.0625
-    },
-    {
-      "term": "with",
-      "missed_count": 5,
-      "total_occurrences": 91,
-      "miss_rate": 0.054945054945054944
-    },
-    {
-      "term": "there",
-      "missed_count": 5,
-      "total_occurrences": 54,
-      "miss_rate": 0.09259259259259259
-    },
-    {
-      "term": "if",
-      "missed_count": 5,
-      "total_occurrences": 32,
-      "miss_rate": 0.15625
-    },
-    {
-      "term": "these",
-      "missed_count": 5,
-      "total_occurrences": 51,
-      "miss_rate": 0.09803921568627451
-    },
-    {
-      "term": "jarred",
-      "missed_count": 4,
-      "total_occurrences": 4,
-      "miss_rate": 1.0
-    },
-    {
-      "term": "our",
-      "missed_count": 4,
-      "total_occurrences": 34,
-      "miss_rate": 0.11764705882352941
-    },
-    {
-      "term": "re",
-      "missed_count": 4,
-      "total_occurrences": 40,
-      "miss_rate": 0.1
-    },
-    {
-      "term": "like",
-      "missed_count": 4,
-      "total_occurrences": 43,
-      "miss_rate": 0.09302325581395349
-    },
-    {
-      "term": "has",
-      "missed_count": 4,
-      "total_occurrences": 30,
-      "miss_rate": 0.13333333333333333
-    },
-    {
-      "term": "people",
-      "missed_count": 4,
-      "total_occurrences": 28,
-      "miss_rate": 0.14285714285714285
-    },
-    {
-      "term": "cell",
-      "missed_count": 4,
-      "total_occurrences": 22,
-      "miss_rate": 0.18181818181818182
-    },
-    {
-      "term": "mea",
-      "missed_count": 4,
-      "total_occurrences": 6,
-      "miss_rate": 0.6666666666666666
-    },
-    {
-      "term": "disease",
-      "missed_count": 4,
-      "total_occurrences": 60,
-      "miss_rate": 0.06666666666666667
-    },
-    {
-      "term": "percent",
-      "missed_count": 4,
-      "total_occurrences": 5,
-      "miss_rate": 0.8
-    },
-    {
-      "term": "or",
-      "missed_count": 4,
-      "total_occurrences": 55,
-      "miss_rate": 0.07272727272727272
-    },
-    {
-      "term": "mycobacterium",
-      "missed_count": 4,
-      "total_occurrences": 4,
-      "miss_rate": 1.0
-    },
-    {
-      "term": "all",
-      "missed_count": 3,
-      "total_occurrences": 46,
-      "miss_rate": 0.06521739130434782
-    },
-    {
-      "term": "um",
-      "missed_count": 3,
-      "total_occurrences": 3,
-      "miss_rate": 1.0
-    },
-    {
-      "term": "lori",
-      "missed_count": 3,
-      "total_occurrences": 4,
-      "miss_rate": 0.75
-    },
-    {
-      "term": "sort",
-      "missed_count": 3,
-      "total_occurrences": 8,
-      "miss_rate": 0.375
-    },
-    {
-      "term": "will",
-      "missed_count": 3,
-      "total_occurrences": 30,
-      "miss_rate": 0.1
-    },
-    {
-      "term": "two",
-      "missed_count": 3,
-      "total_occurrences": 12,
-      "miss_rate": 0.25
-    },
-    {
-      "term": "they",
-      "missed_count": 3,
-      "total_occurrences": 36,
-      "miss_rate": 0.08333333333333333
-    },
-    {
-      "term": "polyglutamine",
-      "missed_count": 3,
-      "total_occurrences": 3,
-      "miss_rate": 1.0
-    },
-    {
-      "term": "allele",
-      "missed_count": 3,
-      "total_occurrences": 6,
-      "miss_rate": 0.5
-    },
-    {
-      "term": "aberrant",
-      "missed_count": 3,
-      "total_occurrences": 3,
-      "miss_rate": 1.0
-    },
-    {
-      "term": "exon",
-      "missed_count": 3,
-      "total_occurrences": 3,
-      "miss_rate": 1.0
-    },
-    {
       "term": "five",
-      "missed_count": 3,
-      "total_occurrences": 6,
-      "miss_rate": 0.5
-    },
-    {
-      "term": "system",
-      "missed_count": 3,
-      "total_occurrences": 48,
-      "miss_rate": 0.0625
-    },
-    {
-      "term": "well",
-      "missed_count": 3,
-      "total_occurrences": 22,
-      "miss_rate": 0.13636363636363635
-    },
-    {
-      "term": "know",
-      "missed_count": 3,
-      "total_occurrences": 19,
-      "miss_rate": 0.15789473684210525
-    },
-    {
-      "term": "one",
-      "missed_count": 3,
-      "total_occurrences": 24,
-      "miss_rate": 0.125
-    },
-    {
-      "term": "wild",
-      "missed_count": 3,
-      "total_occurrences": 4,
-      "miss_rate": 0.75
-    },
-    {
-      "term": "right",
-      "missed_count": 3,
-      "total_occurrences": 14,
-      "miss_rate": 0.21428571428571427
-    },
-    {
-      "term": "uh",
-      "missed_count": 3,
-      "total_occurrences": 3,
-      "miss_rate": 1.0
-    },
-    {
-      "term": "music",
-      "missed_count": 3,
-      "total_occurrences": 3,
-      "miss_rate": 1.0
-    },
-    {
-      "term": "out",
-      "missed_count": 3,
-      "total_occurrences": 34,
-      "miss_rate": 0.08823529411764706
+      "missed_count": 11,
+      "total_occurrences": 38,
+      "miss_rate": 0.2894736842105263
     }
   ],
   "top_missed_terms_all": [
     {
       "term": "and",
-      "missed_count": 18,
-      "total_occurrences": 338,
-      "miss_rate": 0.05325443786982249
-    },
-    {
-      "term": "it",
-      "missed_count": 16,
-      "total_occurrences": 117,
-      "miss_rate": 0.13675213675213677
+      "missed_count": 258,
+      "total_occurrences": 3136,
+      "miss_rate": 0.08227040816326531
     },
     {
       "term": "in",
-      "missed_count": 12,
-      "total_occurrences": 190,
-      "miss_rate": 0.06315789473684211
+      "missed_count": 241,
+      "total_occurrences": 1856,
+      "miss_rate": 0.12984913793103448
     },
     {
       "term": "is",
-      "missed_count": 12,
-      "total_occurrences": 175,
-      "miss_rate": 0.06857142857142857
-    },
-    {
-      "term": "adipose",
-      "missed_count": 12,
-      "total_occurrences": 14,
-      "miss_rate": 0.8571428571428571
-    },
-    {
-      "term": "sjogren",
-      "missed_count": 12,
-      "total_occurrences": 12,
-      "miss_rate": 1.0
-    },
-    {
-      "term": "me",
-      "missed_count": 11,
-      "total_occurrences": 19,
-      "miss_rate": 0.5789473684210527
-    },
-    {
-      "term": "cfs",
-      "missed_count": 11,
-      "total_occurrences": 11,
-      "miss_rate": 1.0
-    },
-    {
-      "term": "are",
-      "missed_count": 10,
-      "total_occurrences": 99,
-      "miss_rate": 0.10101010101010101
+      "missed_count": 201,
+      "total_occurrences": 1733,
+      "miss_rate": 0.11598384304673975
     },
     {
       "term": "the",
-      "missed_count": 9,
-      "total_occurrences": 362,
-      "miss_rate": 0.024861878453038673
-    },
-    {
-      "term": "so",
-      "missed_count": 9,
-      "total_occurrences": 125,
-      "miss_rate": 0.072
-    },
-    {
-      "term": "you",
-      "missed_count": 9,
-      "total_occurrences": 98,
-      "miss_rate": 0.09183673469387756
-    },
-    {
-      "term": "tissue",
-      "missed_count": 8,
-      "total_occurrences": 20,
-      "miss_rate": 0.4
-    },
-    {
-      "term": "an",
-      "missed_count": 8,
-      "total_occurrences": 53,
-      "miss_rate": 0.1509433962264151
-    },
-    {
-      "term": "brown",
-      "missed_count": 7,
-      "total_occurrences": 16,
-      "miss_rate": 0.4375
+      "missed_count": 197,
+      "total_occurrences": 3266,
+      "miss_rate": 0.06031843233312921
     },
     {
       "term": "of",
-      "missed_count": 7,
-      "total_occurrences": 291,
-      "miss_rate": 0.024054982817869417
+      "missed_count": 176,
+      "total_occurrences": 2541,
+      "miss_rate": 0.06926406926406926
     },
     {
-      "term": "this",
-      "missed_count": 7,
-      "total_occurrences": 112,
-      "miss_rate": 0.0625
+      "term": "it",
+      "missed_count": 170,
+      "total_occurrences": 1234,
+      "miss_rate": 0.13776337115072934
     },
     {
       "term": "to",
-      "missed_count": 6,
-      "total_occurrences": 260,
-      "miss_rate": 0.023076923076923078
-    },
-    {
-      "term": "but",
-      "missed_count": 6,
-      "total_occurrences": 70,
-      "miss_rate": 0.08571428571428572
-    },
-    {
-      "term": "at",
-      "missed_count": 6,
-      "total_occurrences": 56,
-      "miss_rate": 0.10714285714285714
-    },
-    {
-      "term": "were",
-      "missed_count": 6,
-      "total_occurrences": 21,
-      "miss_rate": 0.2857142857142857
-    },
-    {
-      "term": "for",
-      "missed_count": 6,
-      "total_occurrences": 96,
-      "miss_rate": 0.0625
-    },
-    {
-      "term": "with",
-      "missed_count": 5,
-      "total_occurrences": 91,
-      "miss_rate": 0.054945054945054944
-    },
-    {
-      "term": "there",
-      "missed_count": 5,
-      "total_occurrences": 54,
-      "miss_rate": 0.09259259259259259
+      "missed_count": 153,
+      "total_occurrences": 2333,
+      "miss_rate": 0.06558079725675096
     },
     {
       "term": "that",
-      "missed_count": 5,
-      "total_occurrences": 210,
-      "miss_rate": 0.023809523809523808
+      "missed_count": 153,
+      "total_occurrences": 1954,
+      "miss_rate": 0.07830092118730808
     },
     {
-      "term": "if",
-      "missed_count": 5,
-      "total_occurrences": 32,
-      "miss_rate": 0.15625
+      "term": "you",
+      "missed_count": 146,
+      "total_occurrences": 1306,
+      "miss_rate": 0.11179173047473201
     },
     {
-      "term": "these",
-      "missed_count": 5,
-      "total_occurrences": 51,
-      "miss_rate": 0.09803921568627451
+      "term": "are",
+      "missed_count": 121,
+      "total_occurrences": 895,
+      "miss_rate": 0.13519553072625698
     },
     {
-      "term": "jarred",
-      "missed_count": 4,
-      "total_occurrences": 4,
-      "miss_rate": 1.0
-    },
-    {
-      "term": "our",
-      "missed_count": 4,
-      "total_occurrences": 34,
-      "miss_rate": 0.11764705882352941
-    },
-    {
-      "term": "re",
-      "missed_count": 4,
-      "total_occurrences": 40,
-      "miss_rate": 0.1
+      "term": "so",
+      "missed_count": 117,
+      "total_occurrences": 1315,
+      "miss_rate": 0.08897338403041825
     },
     {
       "term": "we",
-      "missed_count": 4,
-      "total_occurrences": 146,
-      "miss_rate": 0.0273972602739726
+      "missed_count": 101,
+      "total_occurrences": 1257,
+      "miss_rate": 0.08035003977724742
     },
     {
-      "term": "like",
-      "missed_count": 4,
-      "total_occurrences": 43,
-      "miss_rate": 0.09302325581395349
+      "term": "uh",
+      "missed_count": 99,
+      "total_occurrences": 100,
+      "miss_rate": 0.99
     },
     {
-      "term": "has",
-      "missed_count": 4,
-      "total_occurrences": 30,
-      "miss_rate": 0.13333333333333333
-    },
-    {
-      "term": "people",
-      "missed_count": 4,
-      "total_occurrences": 28,
-      "miss_rate": 0.14285714285714285
-    },
-    {
-      "term": "cell",
-      "missed_count": 4,
-      "total_occurrences": 22,
-      "miss_rate": 0.18181818181818182
-    },
-    {
-      "term": "mea",
-      "missed_count": 4,
-      "total_occurrences": 6,
-      "miss_rate": 0.6666666666666666
-    },
-    {
-      "term": "disease",
-      "missed_count": 4,
-      "total_occurrences": 60,
-      "miss_rate": 0.06666666666666667
-    },
-    {
-      "term": "percent",
-      "missed_count": 4,
-      "total_occurrences": 5,
-      "miss_rate": 0.8
+      "term": "have",
+      "missed_count": 96,
+      "total_occurrences": 847,
+      "miss_rate": 0.11334120425029516
     },
     {
       "term": "or",
-      "missed_count": 4,
-      "total_occurrences": 55,
-      "miss_rate": 0.07272727272727272
+      "missed_count": 96,
+      "total_occurrences": 610,
+      "miss_rate": 0.15737704918032788
     },
     {
-      "term": "mycobacterium",
-      "missed_count": 4,
-      "total_occurrences": 4,
-      "miss_rate": 1.0
+      "term": "this",
+      "missed_count": 94,
+      "total_occurrences": 939,
+      "miss_rate": 0.10010649627263046
     },
     {
-      "term": "all",
-      "missed_count": 3,
-      "total_occurrences": 46,
-      "miss_rate": 0.06521739130434782
+      "term": "an",
+      "missed_count": 90,
+      "total_occurrences": 414,
+      "miss_rate": 0.21739130434782608
+    },
+    {
+      "term": "for",
+      "missed_count": 83,
+      "total_occurrences": 914,
+      "miss_rate": 0.09080962800875274
     },
     {
       "term": "um",
-      "missed_count": 3,
-      "total_occurrences": 3,
-      "miss_rate": 1.0
+      "missed_count": 80,
+      "total_occurrences": 83,
+      "miss_rate": 0.963855421686747
     },
     {
-      "term": "lori",
-      "missed_count": 3,
-      "total_occurrences": 4,
-      "miss_rate": 0.75
+      "term": "at",
+      "missed_count": 79,
+      "total_occurrences": 566,
+      "miss_rate": 0.13957597173144876
     },
     {
-      "term": "sort",
-      "missed_count": 3,
-      "total_occurrences": 8,
-      "miss_rate": 0.375
+      "term": "re",
+      "missed_count": 78,
+      "total_occurrences": 457,
+      "miss_rate": 0.17067833698030635
     },
     {
-      "term": "will",
-      "missed_count": 3,
-      "total_occurrences": 30,
-      "miss_rate": 0.1
+      "term": "as",
+      "missed_count": 77,
+      "total_occurrences": 578,
+      "miss_rate": 0.13321799307958476
     },
     {
-      "term": "two",
-      "missed_count": 3,
-      "total_occurrences": 12,
-      "miss_rate": 0.25
+      "term": "on",
+      "missed_count": 75,
+      "total_occurrences": 655,
+      "miss_rate": 0.11450381679389313
+    },
+    {
+      "term": "but",
+      "missed_count": 73,
+      "total_occurrences": 633,
+      "miss_rate": 0.11532385466034756
     },
     {
       "term": "they",
-      "missed_count": 3,
-      "total_occurrences": 36,
-      "miss_rate": 0.08333333333333333
+      "missed_count": 72,
+      "total_occurrences": 536,
+      "miss_rate": 0.13432835820895522
     },
     {
-      "term": "polyglutamine",
-      "missed_count": 3,
-      "total_occurrences": 3,
-      "miss_rate": 1.0
+      "term": "know",
+      "missed_count": 72,
+      "total_occurrences": 302,
+      "miss_rate": 0.23841059602649006
     },
     {
-      "term": "allele",
-      "missed_count": 3,
-      "total_occurrences": 6,
-      "miss_rate": 0.5
+      "term": "there",
+      "missed_count": 70,
+      "total_occurrences": 483,
+      "miss_rate": 0.14492753623188406
     },
     {
-      "term": "aberrant",
-      "missed_count": 3,
-      "total_occurrences": 3,
-      "miss_rate": 1.0
+      "term": "can",
+      "missed_count": 70,
+      "total_occurrences": 664,
+      "miss_rate": 0.10542168674698796
+    },
+    {
+      "term": "with",
+      "missed_count": 69,
+      "total_occurrences": 778,
+      "miss_rate": 0.08868894601542417
+    },
+    {
+      "term": "what",
+      "missed_count": 63,
+      "total_occurrences": 583,
+      "miss_rate": 0.10806174957118353
+    },
+    {
+      "term": "about",
+      "missed_count": 63,
+      "total_occurrences": 611,
+      "miss_rate": 0.10310965630114566
+    },
+    {
+      "term": "one",
+      "missed_count": 61,
+      "total_occurrences": 372,
+      "miss_rate": 0.1639784946236559
+    },
+    {
+      "term": "all",
+      "missed_count": 58,
+      "total_occurrences": 416,
+      "miss_rate": 0.13942307692307693
+    },
+    {
+      "term": "cell",
+      "missed_count": 58,
+      "total_occurrences": 168,
+      "miss_rate": 0.34523809523809523
+    },
+    {
+      "term": "then",
+      "missed_count": 54,
+      "total_occurrences": 328,
+      "miss_rate": 0.16463414634146342
+    },
+    {
+      "term": "be",
+      "missed_count": 52,
+      "total_occurrences": 639,
+      "miss_rate": 0.081377151799687
+    },
+    {
+      "term": "dr",
+      "missed_count": 52,
+      "total_occurrences": 223,
+      "miss_rate": 0.23318385650224216
+    },
+    {
+      "term": "our",
+      "missed_count": 50,
+      "total_occurrences": 360,
+      "miss_rate": 0.1388888888888889
+    },
+    {
+      "term": "cancer",
+      "missed_count": 50,
+      "total_occurrences": 195,
+      "miss_rate": 0.2564102564102564
+    },
+    {
+      "term": "has",
+      "missed_count": 49,
+      "total_occurrences": 264,
+      "miss_rate": 0.1856060606060606
+    },
+    {
+      "term": "if",
+      "missed_count": 48,
+      "total_occurrences": 402,
+      "miss_rate": 0.11940298507462686
+    },
+    {
+      "term": "do",
+      "missed_count": 47,
+      "total_occurrences": 352,
+      "miss_rate": 0.13352272727272727
+    },
+    {
+      "term": "your",
+      "missed_count": 47,
+      "total_occurrences": 341,
+      "miss_rate": 0.1378299120234604
+    },
+    {
+      "term": "ll",
+      "missed_count": 46,
+      "total_occurrences": 178,
+      "miss_rate": 0.25842696629213485
+    },
+    {
+      "term": "right",
+      "missed_count": 46,
+      "total_occurrences": 173,
+      "miss_rate": 0.2658959537572254
+    },
+    {
+      "term": "from",
+      "missed_count": 44,
+      "total_occurrences": 436,
+      "miss_rate": 0.10091743119266056
+    },
+    {
+      "term": "gonna",
+      "missed_count": 44,
+      "total_occurrences": 48,
+      "miss_rate": 0.9166666666666666
+    },
+    {
+      "term": "okay",
+      "missed_count": 43,
+      "total_occurrences": 101,
+      "miss_rate": 0.42574257425742573
+    },
+    {
+      "term": "their",
+      "missed_count": 41,
+      "total_occurrences": 206,
+      "miss_rate": 0.19902912621359223
+    },
+    {
+      "term": "well",
+      "missed_count": 40,
+      "total_occurrences": 257,
+      "miss_rate": 0.1556420233463035
     }
   ],
   "top_hallucinated_terms": [
     {
       "term": "and",
-      "count": 25
-    },
-    {
-      "term": "so",
-      "count": 23
+      "count": 259
     },
     {
       "term": "in",
-      "count": 15
-    },
-    {
-      "term": "of",
-      "count": 13
-    },
-    {
-      "term": "that",
-      "count": 11
-    },
-    {
-      "term": "you",
-      "count": 11
-    },
-    {
-      "term": "on",
-      "count": 10
-    },
-    {
-      "term": "it",
-      "count": 10
-    },
-    {
-      "term": "this",
-      "count": 9
-    },
-    {
-      "term": "to",
-      "count": 9
+      "count": 226
     },
     {
       "term": "the",
-      "count": 8
+      "count": 205
     },
     {
-      "term": "mecfs",
-      "count": 7
+      "term": "so",
+      "count": 194
     },
     {
-      "term": "an",
-      "count": 7
+      "term": "you",
+      "count": 189
     },
     {
-      "term": "are",
-      "count": 6
+      "term": "of",
+      "count": 182
     },
     {
-      "term": "post",
-      "count": 6
+      "term": "to",
+      "count": 171
     },
     {
-      "term": "out",
-      "count": 6
+      "term": "it",
+      "count": 168
+    },
+    {
+      "term": "that",
+      "count": 159
     },
     {
       "term": "is",
-      "count": 6
-    },
-    {
-      "term": "one",
-      "count": 6
-    },
-    {
-      "term": "we",
-      "count": 5
-    },
-    {
-      "term": "as",
-      "count": 5
-    },
-    {
-      "term": "micro",
-      "count": 5
-    },
-    {
-      "term": "re",
-      "count": 5
-    },
-    {
-      "term": "then",
-      "count": 5
-    },
-    {
-      "term": "with",
-      "count": 5
-    },
-    {
-      "term": "has",
-      "count": 4
-    },
-    {
-      "term": "for",
-      "count": 4
-    },
-    {
-      "term": "mia",
-      "count": 4
-    },
-    {
-      "term": "was",
-      "count": 4
-    },
-    {
-      "term": "jared",
-      "count": 3
-    },
-    {
-      "term": "think",
-      "count": 3
+      "count": 154
     },
     {
       "term": "know",
-      "count": 3
+      "count": 108
     },
     {
-      "term": "laurie",
-      "count": 3
+      "term": "this",
+      "count": 105
     },
     {
-      "term": "them",
-      "count": 3
+      "term": "on",
+      "count": 99
     },
     {
-      "term": "where",
-      "count": 3
+      "term": "or",
+      "count": 95
     },
     {
-      "term": "therapy",
-      "count": 3
+      "term": "are",
+      "count": 94
     },
     {
-      "term": "be",
-      "count": 3
+      "term": "we",
+      "count": 89
     },
     {
-      "term": "not",
-      "count": 3
+      "term": "as",
+      "count": 86
     },
     {
-      "term": "these",
-      "count": 3
+      "term": "for",
+      "count": 81
+    },
+    {
+      "term": "at",
+      "count": 79
+    },
+    {
+      "term": "re",
+      "count": 77
+    },
+    {
+      "term": "with",
+      "count": 76
+    },
+    {
+      "term": "have",
+      "count": 70
+    },
+    {
+      "term": "going",
+      "count": 69
+    },
+    {
+      "term": "but",
+      "count": 66
+    },
+    {
+      "term": "an",
+      "count": 63
     },
     {
       "term": "can",
-      "count": 3
+      "count": 63
     },
     {
-      "term": "three",
-      "count": 3
-    },
-    {
-      "term": "showgreens",
-      "count": 3
-    },
-    {
-      "term": "children",
-      "count": 3
+      "term": "one",
+      "count": 62
     },
     {
       "term": "there",
-      "count": 3
+      "count": 57
     },
     {
-      "term": "casing",
-      "count": 3
+      "term": "your",
+      "count": 57
     },
     {
-      "term": "wall",
-      "count": 3
+      "term": "our",
+      "count": 55
     },
     {
-      "term": "years",
-      "count": 3
+      "term": "be",
+      "count": 54
     },
     {
-      "term": "sort",
-      "count": 3
+      "term": "was",
+      "count": 54
     },
     {
-      "term": "lampur",
-      "count": 3
+      "term": "all",
+      "count": 51
     },
     {
-      "term": "ninds",
-      "count": 2
+      "term": "what",
+      "count": 48
     },
     {
-      "term": "necfs",
-      "count": 2
+      "term": "like",
+      "count": 47
+    },
+    {
+      "term": "just",
+      "count": 46
+    },
+    {
+      "term": "they",
+      "count": 45
+    },
+    {
+      "term": "two",
+      "count": 41
+    },
+    {
+      "term": "will",
+      "count": 41
+    },
+    {
+      "term": "not",
+      "count": 39
+    },
+    {
+      "term": "then",
+      "count": 39
+    },
+    {
+      "term": "these",
+      "count": 38
+    },
+    {
+      "term": "ve",
+      "count": 38
+    },
+    {
+      "term": "do",
+      "count": 37
+    },
+    {
+      "term": "more",
+      "count": 37
+    },
+    {
+      "term": "out",
+      "count": 36
+    },
+    {
+      "term": "well",
+      "count": 36
+    },
+    {
+      "term": "my",
+      "count": 35
+    },
+    {
+      "term": "about",
+      "count": 35
+    },
+    {
+      "term": "who",
+      "count": 34
     }
   ]
 }
